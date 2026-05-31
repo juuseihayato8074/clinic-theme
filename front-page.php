@@ -46,6 +46,8 @@
                 $staffs = new WP_Query([
                     'post_type'      => 'staff',
                     'posts_per_page' => 3,
+                    'orderby'        => 'date',
+                    'order'          => 'ASC',
                 ]);
                 if ($staffs->have_posts()) :
                     while ($staffs->have_posts()) : $staffs->the_post(); ?>
@@ -58,7 +60,7 @@
                                 <?php endif; ?>
                                 <div class="staff__item-body">
                                     <h3><?php the_title(); ?></h3>
-                                    <p><?php the_excerpt(); ?></p>
+                                    <p><?php echo wp_trim_words(get_the_excerpt() ?: get_the_content(), 10, '…'); ?></p>
                                 </div>
                             </a>
                         </article>
