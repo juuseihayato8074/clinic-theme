@@ -12,16 +12,19 @@
     <div class="page-content">
         <div class="page-content__inner">
             <div class="service-detail">
-                <?php if (has_post_thumbnail()) : ?>
+                <div class="service-detail__main">
+                    <?php if (has_post_thumbnail()) : ?>
                     <div class="service-detail__thumb">
                         <?php the_post_thumbnail('large'); ?>
                     </div>
-                <?php endif; ?>
-                <div class="service-detail__body">
-                    <?php the_content(); ?>
+                    <?php endif; ?>
+                    <div class="service-detail__body">
+                        <?php the_content(); ?>
+                    </div>
                 </div>
-                <div class="service-detail__back">
-                <a href="javascript:history.back()" class="back-btn">← 戻る</a>
+                    <div class="service-detail__back">
+                    <a href="javascript:history.back()" class="back-btn">← 戻る</a>
+                    </div>
                 </div>
             </div>
         </div>
