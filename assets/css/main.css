@@ -514,3 +514,34 @@ img {
         gap: 16px;
     }
 }
+
+/* ===========================
+   PAGE COMMON
+=========================== */
+.page-hero {
+    background-color: var(--color-main);
+    padding: 80px 0 40px;
+}
+
+.page-hero__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.page-hero__title {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: var(--color-white);
+    letter-spacing: 0.05em;
+}
+
+.page-content {
+    padding: 80px 0;
+}
+
+.page-content__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
