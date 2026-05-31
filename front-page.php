@@ -71,9 +71,10 @@
     </section>
     <section class="news">
         <div class="news__inner">
-            <h2 class="news__title">お知らせ</h2>
+            <h2 class="section__title">お知らせ</h2>
+            <p class="section__subtitle">NEWS</p>
             <ul class="news__list">
-            <?php
+                <?php
                 $news = new WP_Query([
                     'post_type'      => 'post',
                     'posts_per_page' => 3,
@@ -82,7 +83,7 @@
                     while ($news->have_posts()) : $news->the_post(); ?>
                         <li class="news__item">
                             <a href="<?php the_permalink(); ?>">
-                               <time><?php the_date('Y.m.d'); ?></time>
+                            <time><?php echo get_the_date('Y.m.d'); ?></time>
                                 <span><?php the_title(); ?></span>
                             </a>
                         </li>
@@ -91,6 +92,7 @@
                 endif;
                 ?>
             </ul>
+            <a href="<?php echo esc_url(home_url('/news')); ?>" class="news__btn">もっと見る</a>
         </div>
     </section>
 </main>
