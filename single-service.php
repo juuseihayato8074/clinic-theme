@@ -21,7 +21,7 @@
                     <?php the_content(); ?>
                 </div>
                 <div class="service-detail__back">
-                    <a href="<?php echo esc_url(home_url('/#service')); ?>" class="back-btn">← 診療内容一覧へ戻る</a>
+                <a href="<?php echo esc_url(home_url('/service/')); ?>" class="back-btn">← 診療内容一覧へ戻る</a>
                 </div>
             </div>
         </div>
