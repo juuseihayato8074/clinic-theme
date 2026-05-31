@@ -23,7 +23,7 @@
                         <div class="staff-detail__body">
                             <?php the_content(); ?>
                         </div>
-                        <a href="<?php echo esc_url(home_url('/staff/')); ?>" class="back-btn">← スタッフ一覧へ戻る</a>
+                        <a href="javascript:history.back()" class="back-btn">← 戻る</a>
                     </div>
                 </div>
             </div>
