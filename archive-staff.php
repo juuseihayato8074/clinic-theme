@@ -27,10 +27,17 @@
                     </div>
                     <div class="staff-profile__info">
                         <h2 class="staff-profile__name"><?php the_title(); ?></h2>
-                        <p class="staff-profile__role"><?php echo wp_trim_words(get_the_excerpt(), 10, ''); ?></p>
-                        <div class="staff-profile__body">
-                            <?php the_content(); ?>
-                        </div>
+                        <?php
+                        $content = get_the_content();
+                        $lines = explode("\n", strip_tags($content));
+                        $lines = array_filter(array_map('trim', $lines));
+                        $lines = array_values($lines);
+                        $role = isset($lines[0]) ? $lines[0] : '';
+                        $body_lines = array_slice($lines, 1);
+                        $body = implode('<br>', $body_lines);
+                        ?>
+                        <p class="staff-profile__role"><?php echo esc_html($role); ?></p>
+                        <div class="staff-profile__body"><?php echo $body; ?></div>
                     </div>
                 </div>
             <?php endwhile;
