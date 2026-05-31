@@ -758,3 +758,55 @@ img {
     line-height: 2;
     margin-bottom: 48px;
 }
+
+/* ===========================
+   ABOUT
+=========================== */
+.about-lead {
+    margin-bottom: 64px;
+    text-align: center;
+}
+
+.about-lead__title {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: var(--color-text);
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.about-lead__text {
+    font-size: 0.95rem;
+    line-height: 2;
+    color: var(--color-text);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.about-info__item {
+    background-color: var(--color-white);
+    border-radius: var(--radius);
+    padding: 32px;
+    box-shadow: var(--shadow);
+}
+
+.about-info__title {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    color: var(--color-main);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--color-main);
+}
+
+.about-info__text {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--color-text);
+}
