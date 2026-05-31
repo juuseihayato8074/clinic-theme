@@ -27,7 +27,7 @@
                         <article class="service__item">
                             <a href="<?php the_permalink(); ?>">
                                 <h3><?php the_title(); ?></h3>
-                                <p><?php the_excerpt(); ?></p>
+                                <p><?php echo wp_trim_words(get_the_excerpt() ?: get_the_content(), 25, '…'); ?></p>
                             </a>
                         </article>
                     <?php endwhile;
