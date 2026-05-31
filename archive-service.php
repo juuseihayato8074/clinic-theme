@@ -10,28 +10,38 @@
     <div class="page-content">
         <div class="page-content__inner">
             <div class="service__list">
-                <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-                <article class="service__item">
-                            <a href="<?php the_permalink(); ?>">
-                                <?php
-                                $title = get_the_title();
-                                if (strpos($title, '骨折') !== false) {
-                                    $icon = 'fa-solid fa-bone';
-                                } elseif (strpos($title, '捻挫') !== false || strpos($title, '打撲') !== false) {
-                                    $icon = 'fa-solid fa-person-falling';
-                                } elseif (strpos($title, 'リハビリ') !== false) {
-                                    $icon = 'fa-solid fa-person-walking';
-                                } else {
-                                    $icon = 'fa-solid fa-stethoscope';
-                                }
-                                ?>
-                                <div class="service__icon">
-                                    <i class="<?php echo $icon; ?>"></i>
-                                </div>
-                                <h3><?php the_title(); ?></h3>
-                            </a>
-                        </article>
-                <?php endwhile; endif; ?>
+                <?php
+                $services = new WP_Query([
+                    'post_type'      => 'service',
+                    'posts_per_page' => -1,
+                    'orderby'        => 'date',
+                    'order'          => 'ASC',
+                ]);
+                if ($services->have_posts()) : while ($services->have_posts()) : $services->the_post();
+                ?>
+                    <article class="service__item">
+                        <a href="<?php the_permalink(); ?>">
+                            <?php
+                            $title = get_the_title();
+                            if (strpos($title, '骨折') !== false) {
+                                $icon = 'fa-solid fa-bone';
+                            } elseif (strpos($title, '捻挫') !== false || strpos($title, '打撲') !== false) {
+                                $icon = 'fa-solid fa-person-falling';
+                            } elseif (strpos($title, 'リハビリ') !== false) {
+                                $icon = 'fa-solid fa-person-walking';
+                            } else {
+                                $icon = 'fa-solid fa-stethoscope';
+                            }
+                            ?>
+                            <div class="service__icon">
+                                <i class="<?php echo $icon; ?>"></i>
+                            </div>
+                            <h3><?php the_title(); ?></h3>
+                        </a>
+                    </article>
+                <?php endwhile;
+                wp_reset_postdata();
+                endif; ?>
             </div>
         </div>
     </div>

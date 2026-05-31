@@ -22,10 +22,7 @@
                         <?php the_content(); ?>
                     </div>
                 </div>
-                    <div class="service-detail__back">
-                    <a href="javascript:history.back()" class="back-btn">← 戻る</a>
-                    </div>
-                </div>
+                <a href="javascript:history.back()" class="back-btn">← 戻る</a>
             </div>
         </div>
     </div>
