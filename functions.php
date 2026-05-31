@@ -41,3 +41,28 @@ function clinic_register_post_types() {
     ]);
 }
 add_action('init', 'clinic_register_post_types');
+
+// 絵文字スクリプトを無効化
+function clinic_disable_emojis() {
+    remove_action('wp_head', 'print_emoji_detection_script', 7);
+    remove_action('wp_print_styles', 'print_emoji_styles');
+}
+add_action('init', 'clinic_disable_emojis');
+
+// RSSフィードを無効化
+remove_action('wp_head', 'feed_links', 2);
+remove_action('wp_head', 'feed_links_extra', 3);
+
+// WordPressバージョン情報を非表示
+remove_action('wp_head', 'wp_generator');
+
+// 不要なヘッダー情報を削除
+remove_action('wp_head', 'wlwmanifest_link');
+remove_action('wp_head', 'rsd_link');
+
+// WebPのアップロードを許可
+function clinic_allow_webp($mimes) {
+    $mimes['webp'] = 'image/webp';
+    return $mimes;
+}
+add_filter('upload_mimes', 'clinic_allow_webp');
