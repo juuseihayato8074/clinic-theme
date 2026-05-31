@@ -604,3 +604,32 @@ img {
 .wpcf7 input[type="submit"]:hover {
     background-color: var(--color-sub);
 }
+
+/* ===========================
+   ACCESS
+=========================== */
+.access-map {
+    margin-bottom: 48px;
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.access-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.access-table th,
+.access-table td {
+    padding: 16px 24px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 0.95rem;
+    text-align: left;
+}
+
+.access-table th {
+    width: 160px;
+    color: var(--color-sub);
+    font-weight: 500;
+    white-space: nowrap;
+}
