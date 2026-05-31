@@ -929,10 +929,15 @@ img {
 }
 
 .single-post {
-    max-width: 800px;
-    margin: 0 auto;
     font-size: 0.95rem;
     line-height: 2;
+    color: var(--color-text);
+    margin-bottom: 48px;
+}
+
+.page-content__inner .single-post {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .single-post__back {
@@ -942,7 +947,6 @@ img {
 .section__btn {
     text-align: center;
     margin-top: 48px;
-    display: block;
 }
 
 .section__more-btn {
@@ -959,4 +963,84 @@ img {
 .section__more-btn:hover {
     background-color: var(--color-white);
     color: var(--color-main);
+}
+
+/* ===========================
+   CONTACT
+=========================== */
+.contact-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.contact-info {
+    background: linear-gradient(135deg, var(--color-sub) 0%, var(--color-main) 100%);
+    border-radius: 16px;
+    padding: 48px 40px;
+    position: sticky;
+    top: 100px;
+}
+
+.contact-info__title {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    color: var(--color-white);
+    margin-bottom: 16px;
+    line-height: 1.6;
+}
+
+.contact-info__text {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+.contact-info__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.contact-info__item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.contact-info__label {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.05em;
+}
+
+.contact-info__label i {
+    margin-right: 6px;
+}
+
+.contact-info__value {
+    font-size: 0.95rem;
+    color: var(--color-white);
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.contact-form {
+    background-color: var(--color-white);
+    border-radius: 16px;
+    padding: 48px 40px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+
+@media (max-width: 768px) {
+    .contact-wrap {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-info {
+        position: static;
+    }
 }
