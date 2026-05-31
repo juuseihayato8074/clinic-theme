@@ -1,13 +1,17 @@
 <?php get_header(); ?>
 
 <main class="main">
-    <section class="hero">
-        <div class="hero__inner">
-            <h1 class="hero__title">あなたの健康を、<br>全力でサポートします。</h1>
-            <p class="hero__text">あおば整形外科クリニックは整形外科・リハビリを専門とする地域密着型のクリニックです。</p>
-            <a href="#contact" class="hero__btn">お問い合わせ</a>
-        </div>
-    </section>
+<section class="hero">
+    <video class="hero__video" autoplay muted loop playsinline>
+        <source src="<?php echo get_template_directory_uri(); ?>/assets/images/hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero__overlay"></div>
+    <div class="hero__inner">
+        <h1 class="hero__title">あなたの健康を、<br>全力でサポートします。</h1>
+        <p class="hero__text">あおば整形外科クリニックは整形外科・リハビリを専門とする<br>地域密着型のクリニックです。</p>
+        <a href="#contact" class="hero__btn">お問い合わせ</a>
+    </div>
+</section>
     <section class="service">
         <div class="service__inner">
             <h2 class="service__title">診療内容</h2>
