@@ -68,7 +68,7 @@
                 if ($staffs->have_posts()) :
                     while ($staffs->have_posts()) : $staffs->the_post(); ?>
                         <article class="staff__item">
-                            <a href="<?php the_permalink(); ?>">
+                        <a href="<?php echo esc_url(home_url('/staff/')); ?>">
                                 <?php if (has_post_thumbnail()) : ?>
                                     <?php the_post_thumbnail('medium'); ?>
                                 <?php else : ?>
@@ -84,6 +84,9 @@
                     wp_reset_postdata();
                 endif;
                 ?>
+            </div>
+            <div class="section__btn">
+                <a href="<?php echo esc_url(home_url('/staff/')); ?>" class="section__more-btn">スタッフ一覧を見る</a>
             </div>
         </div>
     </section>
