@@ -39,12 +39,13 @@
     </section>
     <section class="staff">
         <div class="staff__inner">
-            <h2 class="staff__title">医師・スタッフ紹介</h2>
+            <h2 class="section__title staff__title">医師・スタッフ紹介</h2>
+            <p class="section__subtitle staff__subtitle">STAFF</p>
             <div class="staff__list">
-            <?php
+                <?php
                 $staffs = new WP_Query([
                     'post_type'      => 'staff',
-                    'posts_per_page' => 4,
+                    'posts_per_page' => 3,
                 ]);
                 if ($staffs->have_posts()) :
                     while ($staffs->have_posts()) : $staffs->the_post(); ?>
@@ -52,8 +53,13 @@
                             <a href="<?php the_permalink(); ?>">
                                 <?php if (has_post_thumbnail()) : ?>
                                     <?php the_post_thumbnail('medium'); ?>
+                                <?php else : ?>
+                                    <div style="width:100%;height:200px;background:var(--color-bg);"></div>
                                 <?php endif; ?>
-                                <h3><?php the_title(); ?></h3>
+                                <div class="staff__item-body">
+                                    <h3><?php the_title(); ?></h3>
+                                    <p><?php the_excerpt(); ?></p>
+                                </div>
                             </a>
                         </article>
                     <?php endwhile;
