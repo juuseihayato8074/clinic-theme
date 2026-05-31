@@ -633,3 +633,45 @@ img {
     font-weight: 500;
     white-space: nowrap;
 }
+
+/* ===========================
+   PRICE
+=========================== */
+.price-section {
+    margin-bottom: 48px;
+}
+
+.price-section__title {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    color: var(--color-text);
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--color-main);
+    margin-bottom: 24px;
+}
+
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.price-table th,
+.price-table td {
+    padding: 16px 24px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 0.95rem;
+    text-align: left;
+}
+
+.price-table th {
+    width: 200px;
+    color: var(--color-sub);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.price-note {
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 16px;
+}
