@@ -9,11 +9,12 @@
             </p>
         </div>
         <ul class="footer__nav">
-            <li><a href="#">診療内容</a></li>
-            <li><a href="#">スタッフ紹介</a></li>
-            <li><a href="#">料金</a></li>
-            <li><a href="#">アクセス</a></li>
-            <li><a href="#">お問い合わせ</a></li>
+            <li><a href="<?php echo esc_url(home_url('/about/')); ?>">クリニック紹介</a></li>
+            <li><a href="<?php echo esc_url(home_url('/service/')); ?>">診療内容</a></li>
+            <li><a href="<?php echo esc_url(home_url('/staff/')); ?>">スタッフ紹介</a></li>
+            <li><a href="<?php echo esc_url(home_url('/price/')); ?>">料金</a></li>
+            <li><a href="<?php echo esc_url(home_url('/access/')); ?>">アクセス</a></li>
+            <li><a href="<?php echo esc_url(home_url('/contact/')); ?>">お問い合わせ</a></li>
         </ul>
     </div>
     <p class="footer__copy">© <?php echo date('Y'); ?> あおば整形外科クリニック</p>

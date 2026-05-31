@@ -66,3 +66,9 @@ function clinic_allow_webp($mimes) {
     return $mimes;
 }
 add_filter('upload_mimes', 'clinic_allow_webp');
+
+// Font Awesomeの読み込み
+function clinic_enqueue_fontawesome() {
+    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
+}
+add_action('wp_enqueue_scripts', 'clinic_enqueue_fontawesome');

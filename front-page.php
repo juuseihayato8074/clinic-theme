@@ -9,7 +9,7 @@
         <div class="hero__inner">
             <h1 class="hero__title">あなたの健康を、<br>全力でサポートします。</h1>
             <p class="hero__text">あおば整形外科クリニックは整形外科・リハビリを専門とする<br>地域密着型のクリニックです。</p>
-            <a href="#contact" class="hero__btn">お問い合わせ</a>
+            <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="hero__btn">お問い合わせ</a>
         </div>
     </section>
     <section class="service">
@@ -20,14 +20,30 @@
                 <?php
                 $services = new WP_Query([
                     'post_type'      => 'service',
-                    'posts_per_page' => 6,
+                    'posts_per_page' => 3,
+                    'orderby'        => 'date',
+                    'order'          => 'ASC',
                 ]);
                 if ($services->have_posts()) :
                     while ($services->have_posts()) : $services->the_post(); ?>
                         <article class="service__item">
                             <a href="<?php the_permalink(); ?>">
+                                <?php
+                                $title = get_the_title();
+                                if (strpos($title, '骨折') !== false) {
+                                    $icon = 'fa-solid fa-bone';
+                                } elseif (strpos($title, '捻挫') !== false || strpos($title, '打撲') !== false) {
+                                    $icon = 'fa-solid fa-person-falling';
+                                } elseif (strpos($title, 'リハビリ') !== false) {
+                                    $icon = 'fa-solid fa-person-walking';
+                                } else {
+                                    $icon = 'fa-solid fa-stethoscope';
+                                }
+                                ?>
+                                <div class="service__icon">
+                                    <i class="<?php echo $icon; ?>"></i>
+                                </div>
                                 <h3><?php the_title(); ?></h3>
-                                <p><?php echo wp_trim_words(get_the_excerpt() ?: get_the_content(), 25, '…'); ?></p>
                             </a>
                         </article>
                     <?php endwhile;
