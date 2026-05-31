@@ -1,18 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap');
 
+/* ===========================
+   CSS変数
+=========================== */
 :root {
     --color-main: #4DB8C8;
     --color-sub: #2A8FA0;
+    --color-accent: #1A6B7C;
     --color-bg: #F7FBFC;
     --color-text: #1A1A2E;
     --color-white: #FFFFFF;
-    --color-accent: #1A6B7C;
     --font-serif: 'Noto Serif JP', serif;
     --font-sans: 'Noto Sans JP', sans-serif;
     --radius: 8px;
     --shadow: 0 4px 16px rgba(0,0,0,0.08);
 }
 
+/* ===========================
+   リセット・ベース
+=========================== */
 * {
     margin: 0;
     padding: 0;
@@ -39,6 +45,10 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
+}
+
+.main {
+    margin-top: 0;
 }
 
 /* ===========================
@@ -83,7 +93,7 @@ img {
 .header__menu a {
     font-size: 0.9rem;
     font-weight: 500;
-    color: var(--color-text);
+    color: var(--color-white);
     letter-spacing: 0.05em;
     transition: color 0.3s;
 }
@@ -106,13 +116,8 @@ img {
     display: block;
     width: 24px;
     height: 2px;
-    background-color: var(--color-text);
+    background-color: var(--color-white);
     transition: 0.3s;
-}
-
-/* ヘッダー分の余白 */
-.main {
-    margin-top: 0px;
 }
 
 /* ===========================
@@ -188,7 +193,7 @@ img {
 }
 
 /* ===========================
-   SECTION COMMON
+   セクション共通
 =========================== */
 .section__title {
     font-family: var(--font-serif);
@@ -198,7 +203,7 @@ img {
     text-align: center;
     letter-spacing: 0.08em;
     position: relative;
-    padding: 24px;
+    padding-bottom: 24px;
 }
 
 .section__title::after {
@@ -221,8 +226,29 @@ img {
     margin-bottom: 0;
 }
 
+.section__btn {
+    text-align: center;
+    margin-top: 48px;
+}
+
+.section__more-btn {
+    display: inline-block;
+    padding: 16px 48px;
+    border: 2px solid var(--color-white);
+    color: var(--color-white);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    border-radius: 40px;
+    transition: 0.3s;
+}
+
+.section__more-btn:hover {
+    background-color: var(--color-white);
+    color: var(--color-main);
+}
+
 /* ===========================
-   SERVICE
+   SERVICE（TOPページ）
 =========================== */
 .service {
     padding: 80px 0;
@@ -281,7 +307,7 @@ img {
 }
 
 /* ===========================
-   STAFF
+   STAFF（TOPページ）
 =========================== */
 .staff {
     padding: 80px 0;
@@ -350,7 +376,7 @@ img {
 }
 
 /* ===========================
-   NEWS
+   NEWS（TOPページ）
 =========================== */
 .news {
     padding: 80px 0;
@@ -483,77 +509,7 @@ img {
 }
 
 /* ===========================
-   RESPONSIVE
-=========================== */
-@media (max-width: 768px) {
-    .header__hamburger {
-        display: flex;
-    }
-
-    .header__nav {
-        display: none;
-        position: fixed;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        height: calc(100vh - 80px);
-        background-color: var(--color-white);
-        padding: 40px;
-    }
-
-    .header__nav.is-open {
-        display: block;
-    }
-
-    .header__menu {
-        flex-direction: column;
-        gap: 24px;
-    }
-
-    .header__menu a {
-        font-size: 1.1rem;
-    }
-
-    .header__hamburger.is-open span:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .header__hamburger.is-open span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .header__hamburger.is-open span:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-
-    /* Hero */
-    .hero__title {
-        font-size: 2rem;
-    }
-
-    /* Service */
-    .service__list {
-        grid-template-columns: 1fr;
-    }
-
-    /* Staff */
-    .staff__list {
-        grid-template-columns: 1fr;
-    }
-
-    /* Footer */
-    .footer__inner {
-        flex-direction: column;
-    }
-
-    .footer__nav {
-        flex-wrap: wrap;
-        gap: 16px;
-    }
-}
-
-/* ===========================
-   PAGE COMMON
+   ページ共通
 =========================== */
 .page-hero {
     background: linear-gradient(135deg, var(--color-sub) 0%, var(--color-main) 100%);
@@ -585,6 +541,13 @@ img {
     background-color: rgba(255,255,255,0.6);
 }
 
+.page-hero__date {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.7);
+    margin-top: 8px;
+    letter-spacing: 0.05em;
+}
+
 .page-content {
     padding: 80px 0;
 }
@@ -595,138 +558,75 @@ img {
     padding: 0 40px;
 }
 
-/* ===========================
-   CONTACT FORM
-=========================== */
-.wpcf7 {
-    max-width: 640px;
-}
-
-.wpcf7 label {
-    display: block;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--color-text);
-    margin-bottom: 8px;
-}
-
-.wpcf7 input[type="text"],
-.wpcf7 input[type="email"],
-.wpcf7 textarea {
-    width: 100%;
-    padding: 12px 16px;
-    border: 1px solid #d0d0d0;
-    border-radius: var(--radius);
-    font-size: 0.95rem;
-    font-family: var(--font-sans);
-    color: var(--color-text);
-    background-color: var(--color-white);
-    transition: border-color 0.3s;
-    margin-bottom: 24px;
-}
-
-.wpcf7 input[type="text"]:focus,
-.wpcf7 input[type="email"]:focus,
-.wpcf7 textarea:focus {
-    outline: none;
-    border-color: var(--color-main);
-}
-
-.wpcf7 textarea {
-    height: 160px;
-    resize: vertical;
-}
-
-.wpcf7 input[type="submit"] {
+.back-btn {
     display: inline-block;
-    padding: 16px 48px;
-    background-color: var(--color-main);
-    color: var(--color-white);
-    font-size: 0.95rem;
-    font-family: var(--font-sans);
-    border: none;
+    padding: 12px 32px;
+    border: 1px solid var(--color-main);
+    color: var(--color-main);
     border-radius: var(--radius);
-    cursor: pointer;
+    font-size: 0.9rem;
     transition: 0.3s;
 }
 
-.wpcf7 input[type="submit"]:hover {
-    background-color: var(--color-sub);
+.back-btn:hover {
+    background-color: var(--color-main);
+    color: var(--color-white);
 }
 
 /* ===========================
-   ACCESS
+   クリニック紹介
 =========================== */
-.access-map {
-    margin-bottom: 48px;
-    border-radius: var(--radius);
-    overflow: hidden;
+.about-lead {
+    margin-bottom: 64px;
+    text-align: center;
 }
 
-.access-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.access-table th,
-.access-table td {
-    padding: 16px 24px;
-    border-bottom: 1px solid #e0e0e0;
-    font-size: 0.95rem;
-    text-align: left;
-}
-
-.access-table th {
-    width: 160px;
-    color: var(--color-sub);
-    font-weight: 500;
-    white-space: nowrap;
-}
-
-/* ===========================
-   PRICE
-=========================== */
-.price-section {
-    margin-bottom: 48px;
-}
-
-.price-section__title {
+.about-lead__title {
     font-family: var(--font-serif);
-    font-size: 1.3rem;
+    font-size: 1.8rem;
     color: var(--color-text);
-    padding-bottom: 12px;
-    border-bottom: 2px solid var(--color-main);
+    line-height: 1.6;
     margin-bottom: 24px;
 }
 
-.price-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.price-table th,
-.price-table td {
-    padding: 16px 24px;
-    border-bottom: 1px solid #e0e0e0;
+.about-lead__text {
     font-size: 0.95rem;
-    text-align: left;
+    line-height: 2;
+    color: var(--color-text);
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.price-table th {
-    width: 200px;
-    color: var(--color-sub);
-    font-weight: 500;
-    white-space: nowrap;
+.about-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
 }
 
-.price-note {
-    font-size: 0.85rem;
-    color: #888;
-    margin-top: 16px;
+.about-info__item {
+    background-color: var(--color-white);
+    border-radius: var(--radius);
+    padding: 32px;
+    box-shadow: var(--shadow);
+}
+
+.about-info__title {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    color: var(--color-main);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--color-main);
+}
+
+.about-info__text {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--color-text);
 }
 
 /* ===========================
-   SERVICE DETAIL
+   診療内容詳細
 =========================== */
 .service-detail__thumb {
     margin-bottom: 40px;
@@ -747,23 +647,8 @@ img {
     margin-bottom: 48px;
 }
 
-.back-btn {
-    display: inline-block;
-    padding: 12px 32px;
-    border: 1px solid var(--color-main);
-    color: var(--color-main);
-    border-radius: var(--radius);
-    font-size: 0.9rem;
-    transition: 0.3s;
-}
-
-.back-btn:hover {
-    background-color: var(--color-main);
-    color: var(--color-white);
-}
-
 /* ===========================
-   STAFF DETAIL
+   スタッフ詳細（single）
 =========================== */
 .staff-detail__head {
     display: flex;
@@ -809,7 +694,7 @@ img {
 }
 
 /* ===========================
-   STAFF PROFILE
+   スタッフ一覧（archive）
 =========================== */
 .staff-profile {
     display: flex;
@@ -870,64 +755,8 @@ img {
 }
 
 /* ===========================
-   ABOUT
+   お知らせ詳細
 =========================== */
-.about-lead {
-    margin-bottom: 64px;
-    text-align: center;
-}
-
-.about-lead__title {
-    font-family: var(--font-serif);
-    font-size: 1.8rem;
-    color: var(--color-text);
-    line-height: 1.6;
-    margin-bottom: 24px;
-}
-
-.about-lead__text {
-    font-size: 0.95rem;
-    line-height: 2;
-    color: var(--color-text);
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.about-info {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-}
-
-.about-info__item {
-    background-color: var(--color-white);
-    border-radius: var(--radius);
-    padding: 32px;
-    box-shadow: var(--shadow);
-}
-
-.about-info__title {
-    font-family: var(--font-serif);
-    font-size: 1.1rem;
-    color: var(--color-main);
-    margin-bottom: 16px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid var(--color-main);
-}
-
-.about-info__text {
-    font-size: 0.9rem;
-    line-height: 1.8;
-    color: var(--color-text);
-}
-
-.page-hero__date {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.7);
-    margin-top: 8px;
-    letter-spacing: 0.05em;
-}
-
 .single-post {
     font-size: 0.95rem;
     line-height: 2;
@@ -944,29 +773,79 @@ img {
     margin-top: 48px;
 }
 
-.section__btn {
-    text-align: center;
-    margin-top: 48px;
+/* ===========================
+   料金
+=========================== */
+.price-section {
+    margin-bottom: 48px;
 }
 
-.section__more-btn {
-    display: inline-block;
-    padding: 16px 48px;
-    border: 2px solid var(--color-white);
-    color: var(--color-white);
-    font-size: 0.9rem;
-    letter-spacing: 0.1em;
-    border-radius: 40px;
-    transition: 0.3s;
+.price-section__title {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    color: var(--color-text);
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--color-main);
+    margin-bottom: 24px;
 }
 
-.section__more-btn:hover {
-    background-color: var(--color-white);
-    color: var(--color-main);
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.price-table th,
+.price-table td {
+    padding: 16px 24px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 0.95rem;
+    text-align: left;
+}
+
+.price-table th {
+    width: 200px;
+    color: var(--color-sub);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.price-note {
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 16px;
 }
 
 /* ===========================
-   CONTACT
+   アクセス
+=========================== */
+.access-map {
+    margin-bottom: 48px;
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.access-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.access-table th,
+.access-table td {
+    padding: 16px 24px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 0.95rem;
+    text-align: left;
+}
+
+.access-table th {
+    width: 160px;
+    color: var(--color-sub);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* ===========================
+   お問い合わせ
 =========================== */
 .contact-wrap {
     display: grid;
@@ -1035,12 +914,152 @@ img {
     box-shadow: 0 4px 24px rgba(0,0,0,0.06);
 }
 
+/* ===========================
+   お問い合わせフォーム
+=========================== */
+.wpcf7 label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text);
+    margin-bottom: 8px;
+}
+
+.wpcf7 input[type="text"],
+.wpcf7 input[type="email"],
+.wpcf7 textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #d0d0d0;
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    font-family: var(--font-sans);
+    color: var(--color-text);
+    background-color: var(--color-white);
+    transition: border-color 0.3s;
+    margin-bottom: 24px;
+}
+
+.wpcf7 input[type="text"]:focus,
+.wpcf7 input[type="email"]:focus,
+.wpcf7 textarea:focus {
+    outline: none;
+    border-color: var(--color-main);
+}
+
+.wpcf7 textarea {
+    height: 160px;
+    resize: vertical;
+}
+
+.wpcf7 input[type="submit"] {
+    display: inline-block;
+    padding: 16px 48px;
+    background-color: var(--color-main);
+    color: var(--color-white);
+    font-size: 0.95rem;
+    font-family: var(--font-sans);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.wpcf7 input[type="submit"]:hover {
+    background-color: var(--color-sub);
+}
+
+/* ===========================
+   レスポンシブ
+=========================== */
 @media (max-width: 768px) {
+    /* ハンバーガーメニュー */
+    .header__hamburger {
+        display: flex;
+    }
+
+    .header__nav {
+        display: none;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: var(--color-accent);
+        padding: 40px;
+    }
+
+    .header__nav.is-open {
+        display: block;
+    }
+
+    .header__menu {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .header__menu a {
+        font-size: 1.1rem;
+    }
+
+    .header__hamburger.is-open span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .header__hamburger.is-open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .header__hamburger.is-open span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Hero */
+    .hero__title {
+        font-size: 2rem;
+    }
+
+    /* Service */
+    .service__list {
+        grid-template-columns: 1fr;
+    }
+
+    /* Staff */
+    .staff__list {
+        grid-template-columns: 1fr;
+    }
+
+    /* About */
+    .about-info {
+        grid-template-columns: 1fr;
+    }
+
+    /* Staff profile */
+    .staff-profile {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .staff-profile__thumb {
+        width: 100%;
+    }
+
+    /* Contact */
     .contact-wrap {
         grid-template-columns: 1fr;
     }
 
     .contact-info {
         position: static;
+    }
+
+    /* Footer */
+    .footer__inner {
+        flex-direction: column;
+    }
+
+    .footer__nav {
+        flex-wrap: wrap;
+        gap: 16px;
     }
 }
