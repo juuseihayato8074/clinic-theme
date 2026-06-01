@@ -69,6 +69,19 @@ add_filter('upload_mimes', 'clinic_allow_webp');
 
 // Font Awesomeの読み込み
 function clinic_enqueue_fontawesome() {
-    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
+    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css', [], null);
 }
 add_action('wp_enqueue_scripts', 'clinic_enqueue_fontawesome');
+
+// メタディスクリプション
+function clinic_meta_description() {
+    if (is_front_page()) {
+        $description = 'あおば整形外科クリニックは整形外科・リハビリを専門とする地域密着型のクリニックです。骨折・脱臼・捻挫・打撲・リハビリテーションに対応しています。';
+    } elseif (is_singular()) {
+        $description = get_the_excerpt();
+    } else {
+        $description = 'あおば整形外科クリニックは整形外科・リハビリを専門とする地域密着型のクリニックです。';
+    }
+    echo '<meta name="description" content="' . esc_attr(strip_tags($description)) . '">' . "\n";
+}
+add_action('wp_head', 'clinic_meta_description');
