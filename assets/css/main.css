@@ -1080,9 +1080,18 @@ img {
         grid-template-columns: 1fr;
     }
 
+    .service-detail__main {
+        display: flex;
+        flex-direction: column;
+      }
+
     /* About */
     .about-info {
         grid-template-columns: 1fr;
+    }
+
+    .about-lead__title {
+        font-size: 1.7rem;
     }
 
     /* Staff profile */
@@ -1094,6 +1103,17 @@ img {
     .staff-profile__thumb {
         width: 100%;
     }
+
+    /* Price */
+    .price-table th {
+        width: 150px;
+    }
+
+    .price-note {
+        font-size: 0.85rem;
+        color: #888;
+        margin-top: 8px;
+      }
 
     /* Contact */
     .contact-wrap {
